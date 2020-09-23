@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//h//
+
 public class DiscordListener extends ListenerAdapter {
 
     @Inject
@@ -53,6 +53,7 @@ public class DiscordListener extends ListenerAdapter {
         @NonNull TextComponent finalmessage = TextComponent.builder(msgformat).build();
         ComponentLike compfinalmessage = finalmessage.asComponent();
 
+        if (message.getAuthor().isBot()) return;
         if (channel.getIdLong() == bridge.getConfig().getChannels("global")) {
             bridge.getProxyServer().sendMessage(compfinalmessage);
             logger.info("[Discord] " + name + " : " + msg);
