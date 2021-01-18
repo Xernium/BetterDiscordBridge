@@ -1,7 +1,8 @@
 package io.github.bennyboy1695.betterdiscordbridge.listeners;
 
 import com.velocitypowered.api.event.Subscribe;
-import com.velocitypowered.api.event.player.PlayerChatEvent;
+import com.velocitypowered.api.event.player.*;
+import com.velocitypowered.api.event.connection.*;
 import io.github.bennyboy1695.betterdiscordbridge.BetterDiscordBridge;
 import io.github.bennyboy1695.betterdiscordbridge.utils.DiscordMethods;
 
@@ -35,4 +36,18 @@ public class VelocityEventListener {
            DiscordMethods.sendMessage(bridge.getJDA(), bridge.getConfig().getChannels(serverName), message);
         }
     }
+
+    @Subscribe
+    public void onPlayerJoin(PlayerChooseInitialServerEvent e)
+    {
+        DiscordMethods.sendMessage(bridge.getJDA(), bridge.getConfig().getChannels("global"), "> **[ + ]** " + e.getPlayer().getUsername() + " connected");
+    }
+
+    @Subscribe
+    public void onPlayerDisconnect(DisconnectEvent e)
+    {
+        DiscordMethods.sendMessage(bridge.getJDA(), bridge.getConfig().getChannels("global"), "> **[ - ]** " + e.getPlayer().getUsername() + " disconnected");
+    }
+
+
 }

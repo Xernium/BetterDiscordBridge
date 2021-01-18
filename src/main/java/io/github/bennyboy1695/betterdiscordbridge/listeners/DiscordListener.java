@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.ComponentLike;
 import net.kyori.adventure.text.TextComponent;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -48,9 +49,10 @@ public class DiscordListener extends ListenerAdapter {
 
         String msgformat = bridge.getConfig().getFormats("discord_from")
                 .replace("<User>", name)
-                .replace("<Message>", msg);
+                .replace("<Message>", msg)
+                .replace("&", "§");
 
-        @NonNull TextComponent finalmessage = TextComponent.builder(msgformat).build();
+        @NonNull TextComponent finalmessage = Component.text(msgformat);
         ComponentLike compfinalmessage = finalmessage.asComponent();
 
         if (message.getAuthor().isBot()) return;
