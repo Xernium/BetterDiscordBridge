@@ -46,20 +46,20 @@ repositories {
 
 dependencies {
     //testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation 'com.velocitypowered:velocity-api:1.1.0-SNAPSHOT'
+    implementation 'com.velocitypowered:velocity-api:3.1.0'
     implementation "org.spongepowered:configurate-hocon:3.7.1"
-    annotationProcessor 'com.velocitypowered:velocity-api:1.1.0-SNAPSHOT'
+    annotationProcessor 'com.velocitypowered:velocity-api:3.1.0'
 
     //Jda
     implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'org.json:json:20200518'
+    implementation 'org.json:json:20210307'
     implementation 'net.sf.trove4j:trove4j:3.0.3'
-    implementation 'com.squareup.okio:okio:2.8.0'
-    implementation 'com.neovisionaries:nv-websocket-client:2.10'
-    implementation 'com.squareup.okhttp3:okhttp:4.8.1'
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.11.2'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.11.2'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.2'
+    implementation 'com.squareup.okio:okio:3.0.0'
+    implementation 'com.neovisionaries:nv-websocket-client:2.14'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
     implementation 'com.vdurmont:emoji-java:5.1.1'
     implementation 'net.dv8tion:JDA:4.2.0_168'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.0'
@@ -76,11 +76,6 @@ shadowJar {
         include dependency('org.spongepowered:configurate-hocon')
         include dependency('org.spongepowered:configurate-core')
         include dependency('com.typesafe:config')
-        include dependency('net.kyori:adventure-api')
-        include dependency('net.kyori:text-api')
-        include dependency('net.kyori:adventure-text-serializer-legacy')
-        include dependency('net.kyori:examination-api')
-        include dependency('net.kyori:text-serializer-legacy')
         include dependency('org.apache.commons:commons-collections4')
         include dependency('com.vdurmont:emoji-java')
         include dependency('net.dv8tion:JDA')
@@ -89,9 +84,9 @@ shadowJar {
         include dependency('com.squareup.okhttp3:okhttp')
         include dependency('com.squareup.okio:okio')
         include dependency('net.sf.trove4j:trove4j')
-        include dependency('com.fasterxml.jackson.core:jackson-core:2.11.2')
-        include dependency('com.fasterxml.jackson.core:jackson-annotations:2.11.2')
-        include dependency('com.fasterxml.jackson.core:jackson-databind:2.11.2')
+        include dependency('com.fasterxml.jackson.core:jackson-core:2.13.0')
+        include dependency('com.fasterxml.jackson.core:jackson-annotations:2.13.0')
+        include dependency('com.fasterxml.jackson.core:jackson-databind:2.13.0')
         include dependency('org.jetbrains.kotlin:kotlin-stdlib:1.4.0')
 
         relocate('org.apache', 'io.github.bennyboy1695.betterdiscordbridge.libs.org.apache') {

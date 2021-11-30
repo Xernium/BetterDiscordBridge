@@ -31,7 +31,7 @@ import java.util.EnumSet;
 public final class BetterDiscordBridge {
 
     // Changing VERSION = will update the whole plugins version number.
-    static final String VERSION = "1.2.4";
+    static final String VERSION = "1.2.5";
 
     private final ProxyServer server;
 
@@ -77,7 +77,10 @@ public final class BetterDiscordBridge {
         server.getEventManager().register(this, new VelocityEventListener(this));
 
         // This Registration method is deprecated and will need to be updated eventually.
-        server.getCommandManager().register(new CommandGameStatus(this), "gamestatus", "gs");
+        server.getCommandManager().register(server.getCommandManager()
+                .metaBuilder("gamestatus")
+                .aliases("gs")
+                .build(), new CommandGameStatus(this));
     }
 
 
